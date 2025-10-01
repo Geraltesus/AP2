@@ -52,7 +52,7 @@ async def download_worker(url: str, destination: Path, results: List[DownloadRes
 
 def ensure_directory() -> Path:
     while True:
-        user_input = input("Введите путь для сохранения изображений: ").strip()
+        user_input = input().strip()
         path = Path(user_input).expanduser()
         if not user_input:
             print("Путь не может быть пустым.")
@@ -93,7 +93,7 @@ def main() -> None:
 
     try:
         while True:
-            url = input("Введите ссылку на изображение (пустая строка для завершения): ").strip()
+            url = input().strip()
             if not url:
                 break
             future = asyncio.run_coroutine_threadsafe(
